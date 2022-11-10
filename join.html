@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <meta name="viewpoint" content="width=device-width, user-scalable=no, initial-scale=1.0,
@@ -106,44 +106,75 @@ maximum-scale=1.0, minimum-scale=1.0">
             }
         </style>
 
+        <?php
+            require('db.php');
+
+            if (isset($_REQUEST['username'])){
+                $username = stripslashes($_REQUEST['username']);
+
+                $username = mysqli_real_escape_string($con, $username);
+                $email = stripslashes($_REQUEST['email']);
+                $email = mysqli_real_escape_string($con, $email);
+                $password = stripslashes($_REQUEST['password']);
+                $create_datetime = date("Y-m-d H:i:s");
+
+                $query = "INSERT into 'users' VALUES (?, ?, ?, ?, ?, ?)";
+                $stmt3 = mysqli_prepare($dbc, $query3);
+
+	        	//second argument one for each ? either i(integer), d(double), b(blob), s(string or anything else)
+	        	mysqli_stmt_bind_param($stmt3, "ssssdds", $id, $first, $last, $dob, $salary, $bonus, $bid);
+
+                		if(!mysqli_stmt_execute($stmt3)) { //it did not run successfully
+			echo "<h2>We were unable to add the manager at this time.</h2>";
+			mysqli_close($dbc);
+			exit;
+		}
+		mysqli_close($dbc);
+	}
+	else {
+		echo "<h2>You have reached this page in error</h2>";
+		mysqli_close($dbc);
+		exit;
+	}
+
+        ?>
+
         <div class="row">
             <div class="column">
+                <form action="signup.in.php" method="post">
+                    <div class="element">
+                        <label for="username"><b>Username</b></label>
+                        <input type="text" id="username" required>
+                    </div>
 
-                <div class="element">
-                    <label for="username"><b>Username</b></label>
-                    <input type="text" id="username" required>
-                </div>
+                    <div class="element">
+                        <label for="password"><b>Password</b></label>
+                        <input type="password" id="password" required>
+                    </div>
 
-                <div class="element">
-                    <label for="password"><b>Password</b></label>
-                    <input type="password" id="password" required>
-                </div>
+                    <div class="element">
+                        <label for="firstname"><b>First Name</b></label>
+                        <input type="text" id="firstname" required>
+                    </div>
 
-                <div class="element">
-                    <label for="firstname"><b>First Name</b></label>
-                    <input type="text" id="firstname" required>
-                </div>
+                    <div class="element">
+                        <label for="lastname"><b>Last Name</b></label>
+                        <input type="text" id="lastname" required>
+                    </div>
 
-                <div class="element">
-                    <label for="lastname"><b>Last Name</b></label>
-                    <input type="text" id="lastname" required>
-                </div>
+                    <div class="element">
+                        <label for="email"><b>Email</b><br></label>
+                        <input type="text" id="email" required>
+                    </div>
 
-                <div class="element">
-                    <label for="email"><b>Email</b><br></label>
-                    <input type="text" id="email" required>
-                </div>
+                    <label>
+                        <input type="checkbox" name="remember">I Agree To The Terms and Privacy Policy
+                    </label>
 
-                <label>
-                    <input type="checkbox" name="remember">I Agree To The Terms and Privacy Policy
-                </label>
-
-                <div class="element">
-                    <button type="submit" class="submit">Register as Member!</button>
-                </div>
-
-
-
+                    <div class="element">
+                        <button type="submit" class="submit">Register as Member!</button>
+                    </div>
+                </form>
             </div>
 
 

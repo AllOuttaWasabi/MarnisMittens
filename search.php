@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewpoint" content="width=device-width, user-scalable=no, initial-scale=1.0,
 maximum-scale=1.0, minimum-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet"><link rel="stylesheet" href="./style.css"/>
 
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-
-
-    <title>Marni's Mittens</title>
+    <title>Marnis Mittens</title>
     <script>
         function openLoginForm(){
             document.body.classList.add("showLoginForm");
@@ -23,7 +24,6 @@ maximum-scale=1.0, minimum-scale=1.0">
 
 
     <div class="topnav">
-
         <a class="active" href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="blog.html">Blog</a>
@@ -34,10 +34,9 @@ maximum-scale=1.0, minimum-scale=1.0">
             <a href="#" class="fa fa-twitter"></a>
             <a href="#" class="fa fa-youtube"></a>
             <a href="#" class="fa fa-instagram"></a>
+
         </div>
-
     </div>
-
     <div class="divider">
     </div>
 
@@ -50,8 +49,9 @@ maximum-scale=1.0, minimum-scale=1.0">
         }
     </style>
 
-    <img src="..." class="img-fluid" alt="Responsive image">
-
+    <div class="logo-container">
+        <img src="./img/DifferentLogo.png" alt="logo">
+    </div>
 
     <div class="midnav">
         <a href="recipes.html">Recipes</a>
@@ -68,10 +68,6 @@ maximum-scale=1.0, minimum-scale=1.0">
         </h1>
         <div class="divider-short">
         </div>
-
-
-        <a href="tips.html">Cooking Tips</a>
-
     </div>
 
 </body>

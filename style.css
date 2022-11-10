@@ -36,6 +36,8 @@ header{
     padding: 10;
 }
 
+a{text-decoration: none;}
+
 .topnav {
     width: 70%;
     margin: auto;
@@ -51,7 +53,7 @@ header{
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    font-size; 17px;
+    font-size; 14px;
 }
 
 .topnav a:hover{
@@ -145,16 +147,9 @@ display: block;
 }
 
 
-.divider{
-background: black;
-height: 1px;
-}
 
-.divider-short{
-background: black;
-height: 1px;
-width: 100%;
-}
+
+
 
 nav{
 flex: 1;
